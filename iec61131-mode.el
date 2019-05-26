@@ -58,17 +58,17 @@
 	    "LREAL" "LWORD" "REAL" "SINT" "STRING"
 	    "TIME" "TIME_OF_DAY" "TOD" "UDINT" "UINT"
 	    "ULINT" "USINT" "WORD" "WSTRING" "AT"
-	    "BY" "CASE" "COLON" "CONFIGURATION"
+	    "BY" "CASE" "CONFIGURATION"
 	    "CONSTANT" "DATE" "DO" "DT"
 	    "ELSE" "ELSEIF" "END_CASE" "END_CONFIGURATION"
 	    "END_FOR" "END_FUNCTION" "END_FUNCTION_BLOCK"
 	    "END_IF" "END_PROGRAM" "END_REPEAT" "END_RESOURCE"
 	    "END_STRUCT" "END_TYPE" "END_VAR" "END_WHILE"
 	    "EXIT" "FOR" "FUNCTION" "FUNCTION_BLOCK"
-	    "F_EDGE" "IF" "INTERVAL" "NIL"
+	    "IF" "INTERVAL"
 	    "NON_RETAIN" "OF" "ON" "PRIORITY" "PROGRAM"
 	    "READ_ONLY" "READ_WRITE" "REPEAT" "RESOURCE"
-	    "RETAIN" "RETURN" "RIGHT_ARROW" "R_EDGE"
+	    "RETAIN" "RETURN"
 	    "SINGLE" "STRUCT" "TASK" "THEN" "TO"
 	    "TYPE" "UNTIL" "VAR" "VAR_ACCESS" "VAR_CONFIG"
 	    "VAR_EXTERNAL" "VAR_GLOBAL" "VAR_INPUT" "VAR_IN_OUT"
@@ -120,16 +120,16 @@
 (setq iec61131-font-lock-keywords
   `(
     (,iec61131-multi-line-comment-regex . font-lock-comment-face)
-    (,iec61131-string-regex . font-lock-constant-face)
+    (,iec61131-string-regex . font-lock-string-face)
     (,iec61131-time-regex . font-lock-constant-face)
     (,iec61131-datetime-regex . font-lock-constant-face)
     (,iec61131-date-regex . font-lock-constant-face)
     ("\\(TIME_OF_DAY\\|TOD\\)#[012][0-9]:[0-5][0-9]:[0-5][0-9]\\(\\.[0-9]\\{,3\\}\\)"
      . font-lock-constant-face)
     ("\\<.*#.*\\>" . font-lock-constant-face)
-    ("\\<[0-9]+\\(\\.[0-9]+\\)?\\>" . font-lock-constant-face)
-    (,iec61131-bool-regex  . font-lock-constant-face)
-    (,(concat "\\<" (regexp-opt iec61131-keywords) "\\>") . font-lock-builtin-face)))
+    ("\\<[0-9]+\\(\\.[0-9]+\\)?\\>" . font-lock-type-face)
+    (,iec61131-bool-regex  . font-lock-function-name-face)
+    (,(concat "\\<" (regexp-opt iec61131-keywords) "\\>") . font-lock-keyword-face)))
 
 
 (defun iec61131-indent-line ()
